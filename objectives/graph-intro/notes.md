@@ -31,6 +31,12 @@ Components:
             Undirected Edge: The path between A and B is bidirectional, meaning origin and destination are not fixed.
                 Example: A website that has access to each page, linking them.
 
+        Dense
+            Contains close to the maximum edges possible
+
+        Sparse
+            Contains close to the minimum edges possible
+
     Weight
         cost to travel across an edge
 
@@ -106,3 +112,69 @@ class Graph:
 
 Matrix as a two-dimensional array = list of lists. Looking at you, Hashtables.
 
+
+Adjency list runtime/space complexities
+v = vertices/nodes
+
+Space: O(v^2)
+Add Vertex: O(1)
+Remove Verted: O(v)
+Add edge: O(1)
+Remove ege: O(1)
+find edge: O(1)
+get all edges: O(1)
+
+Adjacency Matrix:
+
+    Use a matrix to represent whether or not there exists an edge between two vertices
+
+    Matrix[i][j] is True if there exists an edge from vertex i to vertex j
+
+Adjacency Matrix runtime/space complexity
+v = vertices/nodes
+
+Space: O(v^2)
+    even in a sparse graph, but good for dence graphs because lists are space efficient
+Add Vertex: O(v^2)
+Remove Vertex: O(v^2)
+Add Edge: O(1)
+Remove Edge: O(1)
+Find Edge: O(1)
+Get all edges: O(v)
+
+Graph Traversals
+
+    There are two primary ways to traverse a graph: Depth-first and Breadth-first
+
+    Travel vs. Search
+        In a search, you stop once you finf the node you're searching for
+        in a traversal, you traverse the entire graph
+
+    Depth-First
+        Traverse the graph
+
+        Iterative Psuedocode: To be nameded as DFT_iterative:
+
+        `procedure DFS_iterative(G, v) is
+            let S be a stack
+            S.push(v)
+            while S is not empty do
+                v = S.pop()
+                if v is not labeled as discovered then
+                    label v as discovered
+                    for all edges from v to w in G.adjacentEdges(v) do
+                        S.push(w)`
+
+        depth-First Traversal Recursive Pseudocode: DFT_Recursive
+            `procedure DFS(G, v) is
+                label v as discovered
+                for all directed edges from v to w that are in G.adjacentEdges(v) do
+                    if vertex w is not labeled as discovered then
+                        recursively call DFS(G, w)`
+
+    Bredth-First
+
+        Traverse the graph in a breadth-ward motion using a queue
+        Very useful for finding the shortest path from node to node
+
+        
