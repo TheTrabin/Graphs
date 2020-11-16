@@ -38,7 +38,7 @@ class Graph:
     def get_neighbors(self, vertex_id):
         return self.vertices[vertex_id]
 
-    #stack
+    # stack
     def dft(self, starting_vertex):
         visited = set()
         stack = deque()
@@ -50,8 +50,8 @@ class Graph:
                 print(currNode)
                 for neighbor in self.vertices[currNode]:
                     stack.append(neighbor)
-                    
-    #queue
+
+    # queue
     def bft(self, starting_vertex):
         visited = set()
         queue = deque()
@@ -83,7 +83,39 @@ class Graph:
                     newPath.append(neighbor)
                     stack.append(newPath)
 
-    
+    def dft_recursive(self, starting_vertex):
+        visited = set()
+        self.dft_recursive_helper(starting_vertex, visited)
+
+    def dft_recursive_helper(self, curr_vertex, visited):
+        visited.add(curr_vertex)
+        print(curr_vertex)
+        for neighbor in self.vertices[curr_vertex]:
+            if neighbor not in visited:
+                # recursive case
+                self.dft_recursive_helper(neighbor, visited)
+
+    def dfs_recursive(self, starting_vertex, goal_vertex):
+        visited = set()
+        return self.dfs_recursive_helper([starting_vertex], visited, goal_vertex)
+
+    # return the path to goal_vertex if it exists. If it doesn't, return an empty array
+    def dfs_recursive_helper(self, curr_path, visited, goal_vertex):
+        curr_vertex = curr_path[-1]
+        # base-case if curr vertex is the goal vertex, return its path
+        if curr_vertex == goal_vertex:
+            return curr_path
+        visited.add(curr_vertex)
+        for neighbor in self.vertices[curr_vertex]:
+            if neighbor not in visited:
+                newPath = list(curr_path)
+                newPath.append(neighbor)
+                res = self.dfs_recursive_helper(newPath, visited, goal_vertex)
+                if len(res) > 0:
+                    return res
+        # base-case return empty array if goal vertex not found
+        return []
+
 
 graph = Graph()
 graph.add_vertex(1)

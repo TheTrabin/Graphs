@@ -153,6 +153,8 @@ Graph Traversals
     Depth-First
         Traverse the graph
 
+        stack/recursion
+
         Iterative Psuedocode: To be nameded as DFT_iterative:
 
         `procedure DFS_iterative(G, v) is
@@ -177,7 +179,7 @@ Graph Traversals
         Traverse the graph in a breadth-ward motion using a queue
         Very useful for finding the shortest path from node to node
 
-
+        Queue
 
 
 Goal:
