@@ -1,4 +1,4 @@
-Graphs are collections of data represented by nodes and connections between nodes.
+# Graphs are collections of data represented by nodes and connections between nodes
 
 Trees can be considered a type of Graphs.
 
@@ -14,9 +14,8 @@ Trees can be considered a type of Graphs.
     
     Ordered pair is a pair of mathmatical objects in which the order of objects in the pair matters.
 
-    
+## Components
 
-Components:
     nodes or vertices
         represents objects in a data set (animals, webpages, cities, etc)
 
@@ -43,7 +42,7 @@ Components:
 vertices: (the nodes)
     V = {V0, V1, V2, V3, V4, V5}
 Edges: (node 1 - > node 2, cost to travel(optional))
-    E = {(v0, v1, 5), (v1, v2, 4), (v2, v3, 9), (v3, v4, 7), (v4, v0, 1), (v0, v5, 2), (v5, v4, 8), (v3, v5, 3), (v5, v2, 1) } 
+    E = {(v0, v1, 5), (v1, v2, 4), (v2, v3, 9), (v3, v4, 7), (v4, v0, 1), (v0, v5, 2), (v5, v4, 8), (v3, v5, 3), (v5, v2, 1) }
 
 Useful for:
     Maps - A city/location. Possible stops based on Nodes. Trains you can take to each (edges). Weight (how long it takes)
@@ -53,8 +52,6 @@ Useful for:
 
     Any sort of Network
         Social, Physical, etc.
-
-
 
 Weighted Graphs:
     Directed Graph - Can only move in one direction along the edges.
@@ -85,7 +82,6 @@ ________________________________________________________________________________
 
 Example of building a Graph Class:
 
-
 class Graph:
     def __init__(self):
         self.vertices = {
@@ -111,7 +107,6 @@ class Graph:
                       [1,0,0,0,0,1,0]]
 
 Matrix as a two-dimensional array = list of lists. Looking at you, Hashtables.
-
 
 Adjency list runtime/space complexities
 v = vertices/nodes
@@ -189,11 +184,12 @@ dft-recursive - research
 dfs-recursive - research
 
 `# Python3 program to print DFS traversal  
-# from a given given graph 
+
+<!-- # from a given given graph  -->
 from collections import defaultdict 
   
-# This class represents a directed graph using 
-# adjacency list representation 
+<!-- # This class represents a directed graph using 
+# adjacency list representation  -->
 class Graph: 
   
     # Constructor 
@@ -235,11 +231,12 @@ class Graph:
 
         visited = set() # Set to keep track of visited nodes.
 
-
-# Driver code 
+<!-- # Driver code
   
 # Create a graph given  
-# in the above diagram 
+
+# in the above diagram -->
+
 g = Graph() 
 g.addEdge(0, 1) 
 g.addEdge(0, 2) 
@@ -251,7 +248,7 @@ g.addEdge(3, 3)
 print("Following is DFS from (starting from vertex 2)") 
 g.DFS(2) 
   
-# This code is contributed by Neelam Yadav `
+<!-- / This code is contributed by Neelam Yadav ` -->
 
 `def dfs(visited, graph, node):
     if node not in visited:
@@ -268,3 +265,15 @@ Procedure DFS(G, v) is
 
 [link](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
 [link](https://www.educative.io/edpresso/how-to-implement-depth-first-search-in-python)
+
+## Connected Components
+
+    A graph can be composted of subgraphs
+    These subgraphs are called connected components
+
+### Uses of connected Components
+
+    Determining your social circle (e.g. mutual friends)
+    Determining connected nodes/devices in a network
+    Analyzing epidemics (spread, origin, etc.)
+    Determining if there's a possible route between two places (e.g. flights)
